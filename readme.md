@@ -2,7 +2,7 @@
 
 Este proyecto se desarrolla bajo el rol de MLOps Engineer
 
-# Machine Learning Operations (MLOps)
+## Machine Learning Operations (MLOps)
 
 El proyecto consiste en construir un sistema de recomendación de videojuegos, de la empresa Steam, para usuarios, soportado en datos que han recolectado a lo largo de los años.
 
@@ -18,27 +18,26 @@ El proceso de depuración de las tablas se inicia con la conversión de cada arc
 
 Se realiza un breve Análisis Exploratorio de Datos para identificar posibles asociaciones entre variables y comportamientos de las mismmas que puedan dar una luz para la construcción del modelo final. Entre los hallazgos, se tiene:
 
-El sistema se basa en una similitud del coseno para calcular la similitud de los juegos mediante los generos y etiquetas.
-
-# Desarrollo de API
+## Desarrollo de API
 
 La propuesta consta de crear 6 funciones: def userdata, def countreviews, def genre, def userforgenre, def developer y def sentiment_analysis. A dichas funciones se crean los respectivos endpoints que consumirá la API, diseñada con el framework FastAPI.
 
-## Cómo Funciona
+## Modelo de ML
 
-La API utiliza un algoritmo de filtrado colaborativo basado en el cálculo de similitudes entre juegos. A continuación, se describe el proceso general:
+Una vez desarrolada la API, llega el momento para construir el modelo de recomendación más apropiado para los usuarios de Steam. Se han propuesto dos modelos:
 
-1. **Entrada del Usuario**: El usuario proporciona el ID de un juego como parámetro en la URL al hacer una solicitud GET a `/recomendacion_juego/{product_id}`.
+- El primero deberá tener una relación ítem-ítem, esto es se toma un item y en base a que tan similar esa ese ítem al resto, se recomiendan similares. Aquí el input es un juego y el output es una lista de juegos recomendados, para ello se recomienda aplicar la similitud del coseno. 
+- La otra propuesta para el sistema de recomendación es aplicar el filtro user-item, esto es tomar un usuario, se encuentran usuarios similares y se recomiendan ítems que a esos usuarios similares les gustaron. En este caso el input es un usuario y el output es una lista de juegos que se le recomienda a ese usuario
 
-2. **Obtención de Datos del Juego de Referencia**: La API obtiene los datos del juego de referencia con el ID proporcionado por el usuario desde un archivo CSV que contiene información sobre los juegos de Steam.
+El líder pide que el modelo derive obligatoriamente en un GET/POST en la API símil al siguiente formato:
 
-3. **Procesamiento de Texto**: La API combina las etiquetas (tags) y géneros del juego de referencia en una sola cadena de texto y crea un vectorizador TF-IDF.
+Si es un sistema de recomendación itemm-item:
+    • def recomendacion_juego: Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
 
-4. **Cálculo de Similitud**: La API divide la carga de trabajo en lotes de juegos del archivo CSV y calcula la similitud de coseno entre el juego de referencia y cada juego en el lote utilizando el vectorizador TF-IDF.
+Si es un sistema de recomendación user-item:
+    • def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario.
 
-5. **Recomendación de Juegos**: La API identifica algún juego similar para recomendar.
-
-
+El modeolo a desarrollar es el sistema de recomendación item-item
 
 ## Función userdata
 
@@ -57,3 +56,4 @@ Además de la función principal de recomendación de películas, el proyecto ta
 - Repositorio (Github): [GitHub - Gabriel Gutierrez/Proyecto_Individual_1](https://github.com/gfgm2508/Proyecto_Individual_1)
 - Deploy del Proyecto (Render):[FastAPI - Swagger UI (proyecto-individual-no1-juegos-steam.onrender.com)](https://proyecto-individual-no1-juegos-steam.onrender.com/docs)
 - Video (Youtube):https://youtu.be/gCrq1ShNo4k
+
