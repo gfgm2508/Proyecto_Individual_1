@@ -6,23 +6,23 @@ Este proyecto se desarrolla bajo el rol de MLOps Engineer
 
 El proyecto consiste en construir un sistema de recomendación de videojuegos, de la empresa Steam, para usuarios, soportado en datos que han recolectado a lo largo de los años.
 
-Como data scientist se debe realkizar el ciclo comlpeto, es decir, iniciar con en ETL muty detallado sobre la data recibida, continuar con un EDA que permita dar luces sobre la ruta a seguir, construyendo las funciones que la compañia requiere para tomar decisiones y entregar finalmente el modelo de recomendación más ajustado a la realidad de la misma.
+Como data scientist se debe realizar el ciclo de procesamiento completo, es decir, iniciar con en ETL muty detallado sobre la data recibida, continuar con un EDA que permita dar luces sobre la ruta a seguir, construyendo las funciones que la compañia requiere para tomar decisiones y entregar finalmente el modelo de recomendación más ajustado a la realidad de la misma.
 
 ## ETL
 
 La data está compuesta por 3 tablas json comprimidas, a saber: steam_games.json.gz, user_reviews.json.gz y users_item.json.gz, las cuales contienen datos anidados, muchos valores nulos y duplicados, campos repetidos entre tablas, entre otras cosas. Dichas tablas están provistas en [PI MLOps - STEAM - Google Drive](https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj).
 
-El proceso de depuración de las tablas se inicia con la conversión de cada archivo jason en un DataFrame de Python, seguido de la desanidación de las columnas de interés, la eliminación de columnas innecesarias para el proceso, la eliminación de registros con valor nulo y duplicados, la corrección del formato de algunos campos, posteriormente, se creó la variable sentiment_analysis en la tabla user_reviews, indispensable para el modelo de recomendación y, por último, se convirtieron a csv las tablas steam_games y user_reviews y a parquet, la tabla users_item, por su gran tamaño.
+El proceso de depuración de las tablas se inicia con la conversión de cada archivo jason en un DataFrame de Python, seguido de la desanidación de las columnas de interés (reviews e items), la eliminación de columnas innecesarias para el proceso, la eliminación de registros con valor nulo y duplicados, la corrección del formato de algunos campos, posteriormente, se creó la variable sentiment_analysis en la tabla user_reviews, indispensable para el modelo de recomendación y, por último, se convirtieron a csv las tablas steam_games y user_reviews y a parquet, la tabla users_item, por su gran tamaño.
 
+## EDA
 
-
-## Recomendación de juegos
+Se realiza un breve Análisis Exploratorio de Datos para identificar posibles asociaciones entre variables y comportamientos de las mismmas que puedan dar una luz para la construcción del modelo final. Entre los hallazgos, se tiene:
 
 El sistema se basa en una similitud del coseno para calcular la similitud de los juegos mediante los generos y etiquetas.
 
-# API de Recomendación de Juegos en Steam
+# Desarrollo de API
 
-Esta API proporciona recomendaciones de juegos en la plataforma Steam basadas en el comportamiento de los usuarios y los datos de los juegos disponibles en Steam.
+La propuesta consta de crear 6 funciones: def userdata, def countreviews, def genre, def userforgenre, def developer y def sentiment_analysis. A dichas funciones se crean los respectivos endpoints que consumirá la API, diseñada con el framework FastAPI.
 
 ## Cómo Funciona
 
@@ -54,6 +54,6 @@ Además de la función principal de recomendación de películas, el proyecto ta
 
 ## Links
 
-- Repositorio (Github): [GitHub - AlejandroManrrique/Proyecto_Individual](https://github.com/AlejandroManrrique/Proyecto_Individual)
+- Repositorio (Github): [GitHub - Gabriel Gutierrez/Proyecto_Individual_1](https://github.com/gfgm2508/Proyecto_Individual_1)
 - Deploy del Proyecto (Render):[FastAPI - Swagger UI (proyecto-individual-no1-juegos-steam.onrender.com)](https://proyecto-individual-no1-juegos-steam.onrender.com/docs)
 - Video (Youtube):https://youtu.be/gCrq1ShNo4k
