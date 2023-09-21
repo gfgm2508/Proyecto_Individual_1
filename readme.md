@@ -31,25 +31,13 @@ Una vez desarrolada la API, llega el momento para construir el modelo de recomen
 
 El líder pide que el modelo derive obligatoriamente en un GET/POST en la API símil al siguiente formato:
 
-Si es un sistema de recomendación itemm-item:
-    • def recomendacion_juego: Ingresando el id de producto, deberíamos recibir una lista con 5 juegos recomendados similares al ingresado.
+Si es un sistema de recomendación item-item:
+    • def recomendacion_juego: Ingresando el id de producto, se debe recibir una lista con 5 juegos recomendados similares al ingresado.
 
 Si es un sistema de recomendación user-item:
-    • def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, deberíamos recibir una lista con 5 juegos recomendados para dicho usuario.
+    • def recomendacion_usuario( id de usuario ): Ingresando el id de un usuario, se debe recibir una lista con 5 juegos recomendados para dicho usuario.
 
-El modeolo a desarrollar es el sistema de recomendación item-item
-
-## Función userdata
-
-Además de la función principal de recomendación de películas, el proyecto también incluye una función que dado un id de usuario:
-
-- Devuelve la cantidad de dinero gastado.
-
-- El porcentaje de juegos recomendados.
-
--  La cantidad de items.
-
-  
+El modelo a desarrollar es el sistema de recomendación item-item.
 
 ## Links
 
