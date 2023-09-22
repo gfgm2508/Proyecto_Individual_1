@@ -48,5 +48,5 @@ El modelo a desarrollar es el sistema de recomendación item-item.
 
 - Repositorio (Github): [GitHub - Gabriel Gutierrez/Proyecto_Individual_1](https://github.com/gfgm2508/Proyecto_Individual_1)
 - Deploy del Proyecto (Render):[FastAPI - Swagger UI](https://deploy-pi01-3u5c.onrender.com/docs)
-- Video (Youtube):https://youtu.be/gCrq1ShNo4k
+- Video (Youtube): https://youtu.be/LhfHy4BYtlc
 
